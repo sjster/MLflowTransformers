@@ -1,0 +1,18 @@
+name: Declutr transformers 
+
+conda_env: conda.yaml
+# Can have a docker_env instead of a conda_env, e.g.
+# docker_env:
+#    image:  mlflow-docker-example
+
+entry_points:
+  main:
+    parameters:
+      data_file: { type: string , default: "./data/data.csv" }
+      remote: { type: float , default: 0} 
+    command: "python declutr_transformers.py {data_file} {remote}" 
+  databricks:
+    parameters:
+      data_file: { type: string , default: "./data/data.csv" }
+      remote: { type: float , default: 1} 
+    command: "python declutr_transformers.py {data_file} {remote}" 

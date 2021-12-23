@@ -1,0 +1,4 @@
+artifact_location: file:///Users/srijith.rajamohan/Documents/Development/Mlflow/covid_hierarhical/mlflow_project/mlruns/1
+experiment_id: '1'
+lifecycle_stage: active
+name: Covid

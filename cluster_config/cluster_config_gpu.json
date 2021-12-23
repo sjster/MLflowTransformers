@@ -1,0 +1,37 @@
+{
+    "num_workers": 0,
+    "spark_version": "7.1.x-gpu-ml-scala2.12",
+    "spark_conf": {
+        "spark.master": "local[*]"
+    },
+    "aws_attributes": {
+        "first_on_demand": 1,
+        "availability": "ON_DEMAND",
+        "zone_id": "us-west-2c",
+        "spot_bid_price_percent": 100,
+        "ebs_volume_type": "GENERAL_PURPOSE_SSD",
+        "ebs_volume_count": 3,
+        "ebs_volume_size": 100
+    },
+    "node_type_id": "g4dn.xlarge",
+    "driver_node_type_id": "p2.xlarge",
+    "ssh_public_keys": [],
+    "custom_tags": {},
+    "cluster_log_conf": {
+        "dbfs": {
+            "destination": "dbfs:/Users/srijith.rajamohan@databricks.com/cluster-logs"
+        }
+    },
+    "spark_env_vars": {},
+    "enable_elastic_disk": false,
+    "cluster_source": "UI",
+    "init_scripts": [
+        {
+            "dbfs": {
+                "destination": "dbfs:/Users/srijith.rajamohan@databricks.com/simple_init_script.sh"
+            }
+        }
+    ],
+    "policy_id": "125E211535000005",
+    "cluster_id": "0806-140403-costs187"
+}

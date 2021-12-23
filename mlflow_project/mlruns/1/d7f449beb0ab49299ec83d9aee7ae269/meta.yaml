@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/srijith.rajamohan/Documents/Development/Mlflow/covid_hierarhical/mlflow_project/mlruns/1/d7f449beb0ab49299ec83d9aee7ae269/artifacts
+end_time: 1638234151630
+entry_point_name: ''
+experiment_id: '1'
+lifecycle_stage: active
+name: ''
+run_id: d7f449beb0ab49299ec83d9aee7ae269
+run_uuid: d7f449beb0ab49299ec83d9aee7ae269
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1638234121865
+status: 4
+tags: []
+user_id: srijith.rajamohan
