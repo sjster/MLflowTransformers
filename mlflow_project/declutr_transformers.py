@@ -16,18 +16,18 @@ test_data_read.dropna(inplace=True)
 
 if(remote == 1):
   experiment_name = '/Users/srijith.rajamohan@databricks.com/transformers'
-else:
-  experiment_name = 'transformers'
+#else:
+  #experiment_name = 'transformers'
 
-try:
-        mlflow.create_experiment(experiment_name)
-        mlflow.set_experiment(experiment_name)
-except:
-        mlflow.set_experiment(experiment_name)
+#try:
+#        mlflow.create_experiment(experiment_name)
+#        mlflow.set_experiment(experiment_name)
+#except:
+#        mlflow.set_experiment(experiment_name)
 
-mlflow.autolog(log_input_examples=True, log_models=True, exclusive=False)
+#mlflow.autolog(log_input_examples=True, log_models=True, exclusive=False)
 
-with mlflow.start_run(run_name = 'declutr') as mlflow_run:
+with mlflow.start_run() as mlflow_run:
 
     # Load the model
     tokenizer = AutoTokenizer.from_pretrained("johngiorgi/declutr-base")
@@ -54,6 +54,7 @@ semantic_sim = 1 - cosine(embeddings[0], embeddings[1])
 print(semantic_sim)
 
 cos = nn.CosineSimilarity(dim=1, eps=1e-6)
+#mlflow.log_param("threshold", 0.7)
 threshold = 0.7
 distance = cos(embeddings[0].repeat(len(embeddings),1), embeddings)
 print(distance)
