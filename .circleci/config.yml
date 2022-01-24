@@ -29,6 +29,9 @@ jobs:
     # CircleCI will report the results back to your VCS provider.
     steps:
       - checkout
+      - run
+	  name: List files
+	  command: ls -ltra
       - python/install-packages:
           pkg-manager: pip 
           # app-dir: ./circleci/  # If you're requirements.txt isn't in the root directory.
