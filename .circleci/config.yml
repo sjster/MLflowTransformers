@@ -30,8 +30,8 @@ jobs:
     steps:
       - checkout
       - run
-	  name: List files
-	  command: ls -ltra
+          name: List files
+          command: ls -ltra
       - python/install-packages:
           pkg-manager: pip 
           # app-dir: ./circleci/  # If you're requirements.txt isn't in the root directory.
