@@ -9,7 +9,8 @@ backend = "databricks"
 config_file = "./cluster_config/create_cluster.json"
 mlflow_run_res = mlflow.projects.run(uri=project_url,
                                         entry_point="databricks",
-					experiment_id=experiment_id,
+					#experiment_id=experiment_id,
+					experiment_name="/Users/srijith.rajamohan@databricks.com/transformers",
 					backend=backend,
 					backend_config=config_file, 
 					parameters=params) 
