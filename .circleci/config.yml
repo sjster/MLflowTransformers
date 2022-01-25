@@ -20,7 +20,8 @@ jobs:
           name: Print packages
           command: |
             pip freeze
-            databricks --version 
+            databricks --version
+            databricks configure --host https://demo.cloud.databricks.com/ --token-file tokenfile 
       - run:
           name: Run tests
           command: MLFLOW_TRACKING_URI=databricks pytest testing/test_mlflow_projects.py
