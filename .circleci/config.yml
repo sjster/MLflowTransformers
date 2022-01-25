@@ -18,7 +18,7 @@ jobs:
           pkg-manager: pip 
       - run:
           name: Run tests
-          command: pytest testing/test_mlflow_projects.py
+          command: MLFLOW_TRACKING_URI=databricks pytest testing/test_mlflow_projects.py
       - run: 
           name: Print test output
           command: |
