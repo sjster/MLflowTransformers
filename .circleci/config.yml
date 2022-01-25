@@ -14,9 +14,13 @@ jobs:
           command: |
                    ls -ltra
                    python --version
-                   databricks --version
       - python/install-packages:
           pkg-manager: pip 
+      - run:
+          name: Print packages
+          command: |
+            pip freeze
+            databricks --version 
       - run:
           name: Run tests
           command: MLFLOW_TRACKING_URI=databricks pytest testing/test_mlflow_projects.py
