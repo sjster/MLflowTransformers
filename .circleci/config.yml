@@ -9,7 +9,7 @@ jobs:
     docker:
       - image: cimg/python:3.9.8
     steps:
-     - checkout
+      - checkout
       - run:
           name: List files
           command: |
