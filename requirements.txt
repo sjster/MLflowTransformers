@@ -1,5 +1,5 @@
 pandas == 1.3.4 
-pytorch 
+torch 
 scipy == 1.7.3
 transformers == 4.12.5
 mlflow == 1.21.0
