@@ -2,13 +2,14 @@ version: 2.1
 
 orbs:
   python: circleci/python@1.5.0
+  conda: psyplot/psyplot-ci-orb@1.5.31
 
 jobs:
   build-and-test: 
     docker:
       - image: cimg/python:3.9.8
     steps:
-      - checkout
+     - checkout
       - run:
           name: List files
           command: |

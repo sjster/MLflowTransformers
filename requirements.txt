@@ -6,3 +6,4 @@ mlflow == 1.21.0
 pip == 21.3.1
 matplotlib == 3.5.0
 pytest
+databricks-cli
