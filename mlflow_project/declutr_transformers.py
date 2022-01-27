@@ -4,7 +4,9 @@ from transformers import AutoModel, AutoTokenizer
 import pandas as pd
 import mlflow
 import torch.nn as nn
+import os
 import sys
+
 
 test_data_file = sys.argv[1]
 remote = int(sys.argv[2])
@@ -49,15 +51,25 @@ with mlflow.start_run() as mlflow_run:
     #mlflow.pyfunc.log_model(python_model=model, artifact_path="artifacts", registered_model_name="transformers_declutr")
     #mlflow.log_artifact(local_dir='/Users/srijith.rajamohan@databricks.com/transformers')
 
-# Compute a semantic similarity via the cosine distance
-semantic_sim = 1 - cosine(embeddings[0], embeddings[1])
-print(semantic_sim)
+    # Compute a semantic similarity via the cosine distance
+    semantic_sim = 1 - cosine(embeddings[0], embeddings[1])
+    print(semantic_sim)
 
-cos = nn.CosineSimilarity(dim=1, eps=1e-6)
-#mlflow.log_param("threshold", 0.7)
-threshold = 0.7
-distance = cos(embeddings[0].repeat(len(embeddings),1), embeddings)
-print(distance)
-distance_match_index = torch.where(distance > threshold, True, False)
-print(distance_match_index)
-print(test_data_read.loc[list(distance_match_index.numpy())])
+    cos = nn.CosineSimilarity(dim=1, eps=1e-6)
+    #mlflow.log_param("threshold", 0.7)
+    threshold = 0.7
+    distance = cos(embeddings[0].repeat(len(embeddings),1), embeddings)
+    print(distance)
+    distance_match_index = torch.where(distance > threshold, True, False)
+    print(distance_match_index)
+    matched_text = test_data_read.loc[list(distance_match_index.numpy())]
+    print(matched_text)
+
+    if(not os.path.exists('./outputs')):
+        os.mkdir('./outputs')
+
+    test_data_read.to_csv('./outputs/text_data.csv')
+    torch.save(distance, './outputs/distance.pt')
+    matched_text.to_csv('./outputs/matched_text.csv')
+
+    mlflow.log_artifacts('./outputs')
